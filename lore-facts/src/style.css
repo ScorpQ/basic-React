@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,8 +12,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 80%;
-  height: 140%;
+  width: 60%;
+  height: 150%;
   background-size: cover;
   margin: 1rem auto;
 }
@@ -24,10 +23,9 @@ body {
   justify-content: center;
 }
 .lore-chars img {
-  overflow: hidden; /* Bu olmadan image'ler bulunduğu div'in with'ine göre with almıyordu. Life-Saver*/
+  overflow: hidden;
   width: 50%;
-  min-width: 15%;
-  margin: 1rem 5%;
+  margin: 1rem 2%;
 }
 
 /*# sourceMappingURL=style.css.map */
