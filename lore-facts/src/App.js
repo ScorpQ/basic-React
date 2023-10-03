@@ -1,4 +1,4 @@
-import { A } from './data/characters';
+import  { lore_object }  from './data/characters';
 
 /*
 const myArray = [];
@@ -17,8 +17,8 @@ function App() {
       </div>
       <div className = 'chars'>
         {
-         Object.keys(A).map((item ,i) => {
-          return <img src={A[item].img} />
+         Object.keys(lore_object).map((item ,i) => {
+        return <img src={lore_object[item].img} />
          })
         }
       </div>

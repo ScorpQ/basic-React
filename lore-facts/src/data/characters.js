@@ -1,14 +1,14 @@
-export const A = {
+export const lore_object = {
     Arthas: {
-        img: '/images/arthas.jpg',
+        img: './images/arthas.png',
         lore: 'AAA'
     },
     Illidan: {
-        img: '/images/illidan.jpg',
+        img: '/images/illidan.png',
         lore: 'BBB'
     },
     Jaina: {
-        img: '/images/jaina.jpg',
+        img: '/images/jaina.png',
         lore: 'CCC'
     }
 }
