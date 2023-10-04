@@ -3,17 +3,16 @@ import { useState } from 'react';
 
 export default function App() {
 
-  const [lore, setLore] = useState();
+  const [lore, setLore] = useState('');
 
   const title = '';
-  const loreFacts = <h1>{title === '' ? 'Click it' : ''}</h1>;
+  const loreFacts = <h1>{title === '' ? 'Click The Images' : ''}</h1>;
 
 
 
   const handleClick = ({target}) => {
     Object.keys(lore_object).map((item, i) => {
-      /*setLore(target.alt === item ? lore_object[item].lore : 'null')*/
-      if(target.alt === item){
+      if(target.alt === item){ /* setLore(target.alt === item ? lore_object[item].lore : 'null') */
         setLore(lore_object[item].lore);
       }
     })
