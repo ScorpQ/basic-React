@@ -1,8 +1,8 @@
-export default function Login() {
+export default function Login(props) {
     return (
         <div className = "contact-login">
             <input type='text' />
-            <input type='submit' />
+            <input type='submit' onClick={props.onClick} />
         </div>
     );
 }

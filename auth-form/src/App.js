@@ -5,9 +5,10 @@ import './style.css';
 
 function App() {
   const [islogin, setIsLogin] = useState(null); // that means initial value is a falsy if it is null.
+  const [value, setValue] = useState(null);
 
-  const handleSubmit = () => {
-
+  const handleSubmit = ({target}) => {
+      alert(target.value);
   };
 
   return (
@@ -20,7 +21,7 @@ function App() {
       : 
       <>
         <h1>Enter a Password</h1>
-        <Login />
+        <Login onClick={handleSubmit} /> {/* 'onClick' is a only attribute not eventlistener.*/}
       </>
       }
     </div>
