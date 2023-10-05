@@ -1,13 +1,13 @@
 import './style.css';
+import Contact from './components/contact.js';
 
 function App() {
+  const [loginState,  setLoginState] = useState(null);
+
   return (
     <div className = "contact">
       <h1>Contact</h1>
-      <div className = "contact-info">
-        <p>client@example.com</p>
-        <p>555.555.5555</p>
-      </div>
+      <Contact />
     </div>
   );
 }
