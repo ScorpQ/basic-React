@@ -4,11 +4,12 @@ import Login from './components/login.js';
 import './style.css';
 
 function App() {
+  const password = 'nina';
   const [islogin, setIsLogin] = useState(null); // that means initial value is a falsy if it is null.
   const [value, setValue] = useState(null);
 
   const handleSubmit = () => {
-    alert(value);
+    setIsLogin(password !== value ? false : true);
   };
 
   return (
