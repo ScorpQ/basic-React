@@ -1,8 +1,8 @@
 export default function Login(props) {
     return (
-        <div className = "contact-login">
+        <form className = "contact-login" onClick={props.onClick}>
             <input type='text' onChange={(e)=>props.setIt(e.target.value)}/>
-            <input type='submit' onClick={props.onClick} />
-        </div>
+            <input type='submit' />
+        </form>
     );
 }
