@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [value, setValue] = useState(' ');
 
   const changeColor = ({target}) => {
-    document.body.style.backgroundColor = value;
     setValue(target.value);
   }; 
+
+  useEffect(() => {
+    document.body.style.backgroundColor = value;
+ }, [value])
 
   return (
     <div className="App">
