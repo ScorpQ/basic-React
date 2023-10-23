@@ -1,7 +1,11 @@
-export default function App() {
+import { Outlet } from 'react-router-dom';
+import Header from './header'
+
+export default function Root() {
     return (
-      <div className="App">
-        XXXXXXXX
-      </div>
+      <>
+        <Header />
+        <Outlet />
+      </>
     );
 }
