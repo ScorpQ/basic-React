@@ -22,12 +22,12 @@ function App() {
   },[]);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const interval = setInterval(() => {
       setUrl( data[getRandom(data.length)])
     }, 5000)
 
     return () => {
-      clearInterval(intervalId);
+      clearInterval(interval);
     };
   })
 
