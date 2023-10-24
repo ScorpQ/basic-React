@@ -3,13 +3,13 @@ import getApiData from './api';
 import './App.css';
 
 function App() {
-  const[data, setData] = useState("E");
+  const[data, setData] = useState([]);
 
   useEffect(() => {
     async function getData(){
       try {
         const jsonData = await getApiData();
-        setData(jsonData);
+        setData(jsonData.slice(0,4).map((item) => item.url));
       }
       catch(error){
         console.log("ERROR");
