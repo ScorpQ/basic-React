@@ -22,18 +22,20 @@ function App() {
   },[]);
 
   useEffect(() => {
+    let counter = 0;
     const interval = setInterval(() => {
-      setUrl( data[getRandom(data.length)])
-    }, 5000)
+      setUrl(data[counter])
+      counter === 3 ? counter = 0 : counter++ ;
+    }, 500)
 
     return () => {
       clearInterval(interval);
     };
-  })
+  },[data])
 
   return (
     <div className="App">
-      <img src={url} alt="sdaf"/>
+      <img src={url} alt="sdaf" />
     </div>
   );
 }
