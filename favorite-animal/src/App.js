@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import getApiData from './api';
+import getRandom from './util';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       try {
         const jsonData = await getApiData();
         setData(jsonData.slice(0,4).map((item) => item.url));
+        
       }
       catch(error){
         console.log("ERROR");
