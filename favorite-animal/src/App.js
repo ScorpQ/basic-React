@@ -11,7 +11,7 @@ function App() {
     async function getData(){
       try {
         const jsonData = await getApiData();
-        setData(jsonData.slice(0,4).map((item) => item.url));
+        setData(jsonData.slice(0,4));
       }
       catch(error){
         console.log("ERROR");
@@ -23,15 +23,16 @@ function App() {
 
   useEffect(() => {
     let counter = 0;
+    console.log(data);
     const interval = setInterval(() => {
-      setUrl(data[counter])
+      setUrl(data[counter].url)
       counter === 3 ? counter = 0 : counter++ ;
     }, 500)
 
     return () => {
       clearInterval(interval);
     };
-  },[data])
+  }, [data])
 
   return (
     <div className="App">
