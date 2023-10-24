@@ -1,35 +1,30 @@
-import './App.css';
 import { useEffect, useState } from 'react';
+import getApiData from './api';
+import './App.css';
 
 function App() {
-  const[data, setData] = useState();
-
-  const getData = async () => {
-    try{
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-      const jsonResponse = response.ok ? await response.json() : null ;
-      return jsonResponse;
-    }
-    catch(error){
-      console.log(error);
-    }
-  }
+  const[data, setData] = useState("E");
 
   useEffect(() => {
-    async function getDatas(){
+    async function getData(){
       try {
-        const jsonData = await getData();
-        console.log(jsonData);
-      }catch(error){
-        console.log(error);
+        const jsonData = await getApiData();
+        setData(jsonData);
       }
-    }
-    getDatas();
+      catch(error){
+        console.log("ERROR");
+      }
+    } 
+    
+    getData();
   },[]);
+
+  useEffect(() => {
+    console.log(data);
+  },[data])
 
   return (
     <div className="App">
-   
 
     </div>
   );
