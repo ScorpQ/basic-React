@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import getApiData from './api';
-import getRandom from './util';
 import './App.css';
 
 function App() {
-  const[data, setData] = useState([]);
+  const[data, setData] = useState();
   const[url, setUrl] = useState();
 
   useEffect(() => {
@@ -23,22 +22,23 @@ function App() {
 
   useEffect(() => {
     let counter = 0;
-    console.log(data);
+    data && setUrl(data[counter].url)
     const interval = setInterval(() => {
       setUrl(data[counter].url)
-      counter === 3 ? counter = 0 : counter++ ;
-    }, 500)
+      counter === data.length - 1 ? counter = 0 : counter++ ;
+    }, 2000)
 
+    
     return () => {
       clearInterval(interval);
-    };
-  }, [data])
+    }
+  }, [data])  
 
   return (
     <div className="App">
-      <img src={url} alt="sdaf" />
+      <img src={url} />
     </div>
   );
 }
 
-export default App;
+export default App; 
