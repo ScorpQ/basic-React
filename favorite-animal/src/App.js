@@ -37,7 +37,7 @@ function App() {
 
   const myElement = (
     data && data.map((item) => {
-      return <option key={item.id}> {item.title} </option>
+      return <option key={item.id}> {item.title.slice(0,9)} </option>
       })
     );
 
