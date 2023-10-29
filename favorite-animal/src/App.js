@@ -38,7 +38,7 @@ function App() {
   // get option value to identify favorite
   const getFavorite = ({target}) => {
     setFavorite(target.value);
-    console.log(img);
+    console.log(target.value);
   }
 
   // iterate over json data to options
@@ -46,8 +46,8 @@ function App() {
     data && data.map((item) => {
       return (
         <option 
-          value={item.id}> 
-          {item.title} 
+          key={item.id}> 
+          {item.id} 
         </option>
       )
     })
@@ -55,7 +55,7 @@ function App() {
   
   return (
     <div className="App">
-        <img className={favorite === img.id ? 'favorite' : 'unfavorite'} src={img.url} />
+        <img className={favorite == img.id ? 'favorite' : 'unfavorite'} src={img.url} />
         <select name="colors" id="colors" onChange={getFavorite}>
           {myElement}
         </select>
