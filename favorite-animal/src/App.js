@@ -46,8 +46,8 @@ function App() {
     data && data.map((item) => {
       return (
         <option 
-          key={item.id}> 
-          {item.id} 
+          value={item.id}> 
+          {item.title.slice(0,9)} 
         </option>
       )
     })
@@ -55,12 +55,14 @@ function App() {
   
   return (
     <div className="App">
+      <div>
         <img className={favorite == img.id ? 'favorite' : 'unfavorite'} src={img.url} />
-        <select name="colors" id="colors" onChange={getFavorite}>
-          {myElement}
-        </select>
-        <p>{favorite}</p>
-        <p>{img.id}</p>
+          <select name="colors" id="colors" onChange={getFavorite}>
+            {myElement}
+          </select>
+          <p>{favorite}</p>
+          <p>{img.id}</p>
+      </div>
     </div>
   );
 }
