@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   const[data, setData] = useState();
   const[img, setImg] = useState({});
-  const[favorite, setFavorite] = useState();
+  const[favorite, setFavorite] = useState(1);
 
   // fetch json and set it to hook named as 'data'.
   useEffect(() => {
