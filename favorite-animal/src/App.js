@@ -4,53 +4,65 @@ import './App.css';
 
 function App() {
   const[data, setData] = useState();
-  const[url, setUrl] = useState();
+  const[img, setImg] = useState({});
+  const[favorite, setFavorite] = useState();
 
-  // fetch json and set it to hook names 'data'.
+  // fetch json and set it to hook named as 'data'.
   useEffect(() => {
     async function getData(){
       try {
-        const jsonData = await getApiData();
-        setData(jsonData.slice(0,4));
-      }
-      catch(error){
+        const apiData = await getApiData();
+        setData(apiData);
+      } catch (error) {
         console.log("ERROR");
       }
-    } 
+    }
 
     getData();
-  },[]);
+  }, []);
 
   // image set to url from state setter hook named data.
   useEffect(() => {
     let counter = 0;
-    data && setUrl(data[counter].url)
+    data && setImg(data[counter]);
     const interval = setInterval(() => {
-      setUrl(data[counter].url)
-      counter === data.length - 1 ? counter = 0 : counter++ ;
-    }, 1000)
+      data && setImg(data[counter]);
+
+      counter === data.length - 1 ? (counter = 0) : counter++;
+      }, 1000);
 
     return () => {
       clearInterval(interval);
-    }
-  }, [data])  
+    };
+  }, [data]);
+  
 
+  const getFavorite = ({target}) => {
+    setFavorite(target.value);
+  }
+
+  // iterate over json data to options
   const myElement = (
     data && data.map((item) => {
-      return <option key={item.id}> {item.title.slice(0,9)} </option>
-      })
-    );
-
-
-
+      return (
+        <option 
+          key={item.id}> 
+          {item.title} 
+        </option>
+      )
+    })
+  );
+  
   return (
     <div className="App">
-        <img src={url} />
-        <select name="colors" id="colors">
-          { myElement }
+        <img className={favorite === img.title ? 'favorite' : 'unfavorite'} src={img.url} />
+        <select name="colors" id="colors" onChange={getFavorite}>
+          {myElement}
         </select>
+        <p>{favorite}</p>
+        <p>{img.title}</p>
     </div>
   );
 }
 
-export default App; 
+export default App;
