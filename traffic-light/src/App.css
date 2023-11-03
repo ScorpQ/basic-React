@@ -22,3 +22,13 @@ button{
   border: 1px solid black;
   margin: 5px;
 }
+
+.red{
+  background-color: red;
+}
+.yellow{
+  background-color: yellow;
+}
+.green{
+  background-color: green;
+}
